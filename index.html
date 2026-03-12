@@ -1,27 +1,32 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="./src/github.png" type="image/png">
-    <title>Tiago Braga</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Tiago Xavier Braga — Game Developer & Simulation Engineer" />
+  <title>Tiago Xavier Braga — Game Developer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@300;400&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style/tokens.css" />
+  <link rel="stylesheet" href="style/background.css" />
+  <link rel="stylesheet" href="style/components.css" />
+  <link rel="stylesheet" href="style/home.css" />
 </head>
+
 <body>
-    <div class="box">
-        <h1>Tiago Xavier Braga</h1>
-        <img class="foto_perfil" src="https://avatars.githubusercontent.com/u/62892930?s=400&u=32257b46aac48fb1a7d806543f6d0dcf00d3f3a4&v=4">
-    
-        <h2>Desenvolvedor Web</h2>
-        <p>Django • React • NodeJS • Banco de Dados</p>
-        <div class="link">
-            <a href="http://www.linkedin.com/in/tiago-xavier-braga/"><img class="logo" src="./src/linkedin.png" alt="linkedin"></a>
-            <a href="http://github.com/tiago-xavier-braga"><img class="logo" src="./src/github.png" alt="GitHub"></a>
-            <a href="http://www.youtube.com/channel/UCql-0Wkit8pbVIbvEFy0SXg"><img class="logo" src="./src/youtube.png" alt="Youtube"></a>
-        </div>
-    
+  <div id="poly-bg" aria-hidden="true"></div>
+  <div id="frost-layer" aria-hidden="true"></div>
+  <div id="grain" aria-hidden="true"></div>
+  <div id="root">
+    <div id="loading" aria-live="polite">
     </div>
-    
+  </div>
+  <script type="module" src="js/home.js"></script>
 </body>
+
 </html>

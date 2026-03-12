@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="All projects by Tiago Xavier Braga — Game Developer" />
+  <title>Projects — Tiago Xavier Braga</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@300;400&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="style/tokens.css" />
+  <link rel="stylesheet" href="style/background.css" />
+  <link rel="stylesheet" href="style/components.css" />
+  <link rel="stylesheet" href="style/projects.css" />
+</head>
+
+<body>
+  <div id="poly-bg" aria-hidden="true"></div>
+  <div id="frost-layer" aria-hidden="true"></div>
+  <div id="grain" aria-hidden="true"></div>
+
+  <div id="root">
+    <nav class="site-nav">
+      <a href="index.html" class="nav-logo">
+        Tiago Xavier <span>Braga</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+      <div class="nav-status">
+        <div class="status-dot"></div>
+        <span>AVAILABLE</span>
+      </div>
+    </nav>
+
+    <header class="projects-header">
+      <div class="container">
+        <a href="index.html" class="back-link">Back to Home</a>
+        <h1 class="projects-page-title">All <span>Projects</span></h1>
+        <p class="projects-page-sub">
+          Every game, tool, and experiment — from shipped titles to
+          work-in-progress prototypes. Click any card to open it.
+        </p>
+      </div>
+    </header>
+
+    <main class="projects-body">
+      <div class="container">
+        <div class="projects-grid" id="projects-grid"></div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <span class="footer-year">© 2026</span>
+      <span class="sep">◆</span>
+      <span class="footer-name">Tiago Xavier Braga</span>
+      <span class="sep">◆</span>
+      <span>Game Developer</span>
+    </footer>
+  </div>
+
+  <script type="module" src="js/projects.js"></script>
+</body>
+
+</html>

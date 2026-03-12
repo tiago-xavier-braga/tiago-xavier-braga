@@ -1,0 +1,124 @@
+{
+  "name": "Tiago Xavier Braga",
+  "role": "Game Developer",
+  "bio": "Unity & C# developer crafting immersive experiences across WebGL, mobile, and VR. From multiplayer systems to interactive simulations — building games that are technically solid and genuinely fun.",
+  "avatar": "",
+  "status": "AVAILABLE",
+  "about": {
+    "title": "Who I Am",
+    "paragraphs": [
+      "Unity and C# developer focused on building immersive experiences for WebGL, mobile, and virtual reality. I work on games, simulators, and interactive systems with an emphasis on clean architecture, performance, and scalability.",
+      "My background and interests sit at the intersection of software engineering and game design. I aim to build technically robust systems while maintaining clear, engaging player interactions.",
+      "Outside of work, I spend time prototyping new mechanics, studying procedural generation, and debugging physics and system edge cases—usually with a cup of coffee nearby."
+    ]
+  },
+  "stats": {
+    "yearsActive": 4,
+    "projectsShipped": 12,
+    "rolesHeld": 3,
+    "primaryEngine": "Unity"
+  },
+  "itchio": {
+    "url": "https://xavigames.itch.io/",
+    "label": "Play My Games",
+    "description": "Check out my published games and prototypes on itch.io"
+  },
+  "contact": [
+    {
+      "label": "GitHub",
+      "url": "https://github.com/tiago-xavier-braga",
+      "icon": "github"
+    },
+    {
+      "label": "LinkedIn",
+      "url": "https://linkedin.com/in/tiago-xavier-braga",
+      "icon": "linkedin"
+    },
+    {
+      "label": "Email",
+      "url": "mailto:braga.tiagoxavier@gmail.com",
+      "icon": "mail"
+    },
+    {
+      "label": "itch.io",
+      "url": "https://xavigames.itch.io/",
+      "icon": "itchio"
+    }
+  ],
+  "experience": [
+    {
+      "company": "Pequi Hills Studio",
+      "role": "Co-founder & Game Developer",
+      "period": "2022 — 2024",
+      "description": "Shaped the studio's market niche and aligned creative vision with technical feasibility. Contributed to game design and core mechanic ideation, then implemented and refined gameplay systems in Unity — focusing on player clarity and seamless integration across game systems."
+    },
+    {
+      "company": "Haus",
+      "role": "Game Developer",
+      "period": "2023 — Present",
+      "description": "Building high-fidelity simulators in Unity for professional training environments. Architecting physics systems, AI modules, and complex mechanics that demand precision and real-world accuracy."
+    },
+    {
+      "company": "Xavi Games",
+      "role": "Game Developer",
+      "period": "2025 — Present",
+      "description": "Solo indie studio founded to publish and ship personal game projects — from concept to release, handling all aspects of development, design, and deployment independently."
+    }
+  ],
+  "projects": [
+    {
+      "title": "Dominoes Colors",
+      "description": "A relaxing puzzle game where you mix colors as you place each piece on the board. The result of each mix determines your next move — match the checkered flag piece to win.",
+      "tags": [
+        "Unity",
+        "C#",
+        "Puzzle",
+        "Steam"
+      ],
+      "platform": "steam",
+      "url": "https://store.steampowered.com/app/2372580/Dominoes_Colors/",
+      "featured": true
+    },
+    {
+      "title": "Police Chase: Drift",
+      "description": "Arcade racing game where the adrenaline never stops. Speed through an isolated parking lot while escaping relentless police cars — drift, dodge ramps, and stay ahead for as long as you can.",
+      "tags": [
+        "Unity",
+        "Drift",
+        "Race",
+        "Arcade",
+        "Web"
+      ],
+      "platform": "itchio",
+      "url": "https://xavigames.itch.io/",
+      "featured": true
+    },
+    {
+      "title": "Train Rush",
+      "description": "Rebuild a forgotten station into a thriving transport empire. Unlock trains, expand terminals, and keep the crowds moving before they walk out the door.",
+      "tags": [
+        "Unity",
+        "Arcade",
+        "Web",
+        "Tycoon",
+        "Casual"
+      ],
+      "platform": "itchio",
+      "url": "https://xavigames.itch.io/",
+      "featured": true
+    },
+    {
+      "title": "Boompact!",
+      "description": "A fast-paced multiplayer mobile racing game built around chaotic, competitive gameplay loops.",
+      "tags": [
+        "Unity",
+        "Multiplayer",
+        "Mobile",
+        "Race"
+      ],
+      "platform": "playstore",
+      "url": "https://xavigames.itch.io/boompact",
+      "featured": false
+    }
+  ]
+}

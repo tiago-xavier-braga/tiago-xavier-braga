@@ -1,0 +1,80 @@
+:root {
+  --paper: #f2ece0;
+  --paper-2: #ede5d5;
+  --paper-3: #e4d9c5;
+
+  --ink: #2a2218;
+  --ink-dim: #7a6e5e;
+  --ink-faint: #b0a492;
+
+  --border: rgba(42, 34, 24, 0.10);
+  --border-hi: rgba(42, 34, 24, 0.22);
+
+  --rust: #b85c38;
+  --rust-hover: #a04e30;
+  --rust-shadow: rgba(184, 92, 56, 0.26);
+
+  --moss: #4a6741;
+  --gold: #c4902a;
+
+  --glass: rgba(242, 236, 224, 0.55);
+  --glass-hi: rgba(242, 236, 224, 0.75);
+  --glass-solid: rgba(242, 236, 224, 0.92);
+
+  --ff-title: 'Bebas Neue', sans-serif;
+  --ff-serif: 'Lora', Georgia, serif;
+  --ff-mono: 'DM Mono', monospace;
+
+  --radius: 10px;
+  --radius-sm: 4px;
+  --radius-pill: 24px;
+
+  --ease: cubic-bezier(0.23, 1, 0.32, 1);
+  --duration: 200ms;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--ff-serif);
+  background: var(--paper);
+  color: var(--ink);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--rust);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--ink);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.container {
+  max-width: 1020px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+@media (max-width: 760px) {
+  .container {
+    padding: 0 20px;
+  }
+}
