@@ -108,7 +108,7 @@ a.project-card:hover .card-arrow {
   text-transform: uppercase;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 760px) {
   .projects-grid {
     grid-template-columns: 1fr;
   }

@@ -1,13 +1,13 @@
 import { buildBackground } from './background.js';
 import { initReveal } from './reveal.js';
 import { ICONS } from './icons.js';
+import { escapeHTML, sanitizeInline, debounce } from './sanitize.js';
 
 const FALLBACK = {
   name: 'Tiago Xavier Braga',
   role: 'Game Developer',
   bio: 'Unity & C# developer crafting immersive experiences across WebGL, mobile, and VR.',
   status: 'AVAILABLE',
-  avatar: '',
   about: {
     title: 'Who I Am',
     paragraphs: [
@@ -45,24 +45,24 @@ const FALLBACK = {
 };
 
 function firstName(name) {
-  return name.split(' ').slice(0, 2).join(' ');
+  return escapeHTML((name || '').split(' ').slice(0, 2).join(' '));
 }
 
 function lastName(name) {
-  return name.split(' ')[2] || '';
+  return escapeHTML((name || '').split(' ')[2] || '');
 }
 
 function projectCard(p, index) {
-  const tags = (p.tags || []).map(t => `<span class="tag">${t}</span>`).join('');
+  const tags = (p.tags || []).map(t => `<span class="tag">${escapeHTML(t)}</span>`).join('');
   const num = String(index + 1).padStart(2, '0');
   return `
     <div class="project-card glass">
       <div class="card-num">PROJECT_${num}</div>
-      <div class="card-title">${p.title}</div>
-      <p class="card-desc">${p.description}</p>
+      <div class="card-title">${escapeHTML(p.title)}</div>
+      <p class="card-desc">${escapeHTML(p.description)}</p>
       <div class="card-footer">
         <div class="tag-list">${tags}</div>
-        <a href="${p.url || '#'}" class="card-link" target="_blank" rel="noopener">View Project</a>
+        <a href="${escapeHTML(p.url || '#')}" class="card-link" target="_blank" rel="noopener noreferrer">View Project</a>
       </div>
     </div>`;
 }
@@ -75,26 +75,26 @@ function experienceItems(list) {
         ${i < arr.length - 1 ? '<div class="exp-line"></div>' : ''}
       </div>
       <div class="exp-body">
-        <div class="exp-period">${e.period}</div>
-        <div class="exp-role">${e.role}</div>
-        <div class="exp-company">${e.company}</div>
-        <p class="exp-desc">${e.description}</p>
+        <div class="exp-period">${escapeHTML(e.period)}</div>
+        <div class="exp-role">${escapeHTML(e.role)}</div>
+        <div class="exp-company">${escapeHTML(e.company)}</div>
+        <p class="exp-desc">${escapeHTML(e.description)}</p>
       </div>
     </div>`).join('');
 }
 
 function contactCards(list) {
   return list.map((c, i) => `
-    <a href="${c.url}"
+    <a href="${escapeHTML(c.url)}"
        class="contact-card glass reveal reveal-d${Math.min(i + 1, 3)}"
-       target="_blank" rel="noopener">
+       target="_blank" rel="noopener noreferrer">
       ${ICONS[c.icon] || ''}
-      ${c.label}
+      ${escapeHTML(c.label)}
     </a>`).join('');
 }
 
 function aboutParagraphs(about) {
-  return (about.paragraphs || []).map(p => `<p>${p}</p>`).join('');
+  return (about.paragraphs || []).map(p => `<p>${sanitizeInline(p)}</p>`).join('');
 }
 
 function render(d) {
@@ -123,7 +123,7 @@ function render(d) {
       </ul>
       <div class="nav-status">
         <div class="status-dot"></div>
-        ${d.status || 'AVAILABLE'}
+        ${escapeHTML(d.status ?? 'AVAILABLE')}
       </div>
     </nav>
 
@@ -134,8 +134,8 @@ function render(d) {
           ${firstName(d.name)}
           <span class="surname">${lastName(d.name)}</span>
         </h1>
-        <div class="hero-role">${d.role}</div>
-        <p class="hero-bio">${d.bio}</p>
+        <div class="hero-role">${escapeHTML(d.role)}</div>
+        <p class="hero-bio">${escapeHTML(d.bio)}</p>
         <div class="hero-cta">
           <a href="projects.html" class="btn btn-primary">View Projects</a>
           <a href="#contact" class="btn btn-ghost">Contact</a>
@@ -161,7 +161,7 @@ function render(d) {
     <section id="about" class="home-section">
       <div class="container">
         <div class="section-label">About</div>
-        <h2 class="section-title reveal">${about.title}</h2>
+        <h2 class="section-title reveal">${escapeHTML(about.title)}</h2>
         <div class="about-grid">
           <div class="about-text reveal reveal-d1">
             ${aboutParagraphs(about)}
@@ -183,7 +183,7 @@ function render(d) {
               </div>
               <div class="ledger-row">
                 <span class="ledger-key">Primary engine</span>
-                <span class="ledger-val" style="font-size:18px;letter-spacing:2px">${engine.toUpperCase()}</span>
+                <span class="ledger-val" style="font-size:18px;letter-spacing:2px">${escapeHTML(engine.toUpperCase())}</span>
               </div>
             </div>
           </div>
@@ -207,10 +207,10 @@ function render(d) {
         <div class="itchio-banner glass">
           <div>
             <div class="itchio-label">Play My Games</div>
-            <div class="itchio-title">${d.itchio.label}</div>
-            <p class="itchio-desc">${d.itchio.description}</p>
+            <div class="itchio-title">${escapeHTML(d.itchio.label)}</div>
+            <p class="itchio-desc">${escapeHTML(d.itchio.description)}</p>
           </div>
-          <a href="${d.itchio.url}" class="btn-itchio" target="_blank" rel="noopener">Open itch.io →</a>
+          <a href="${escapeHTML(d.itchio.url)}" class="btn-itchio" target="_blank" rel="noopener noreferrer">Open itch.io →</a>
         </div>
       </div>
     </section>` : ''}
@@ -228,7 +228,7 @@ function render(d) {
     <footer class="site-footer">
       <span>© ${new Date().getFullYear()}</span>
       <span class="sep">◆</span>
-      <span>${d.name}</span>
+      <span>${escapeHTML(d.name)}</span>
       <span class="sep">◆</span>
       <span>Game Developer</span>
     </footer>
@@ -258,7 +258,7 @@ async function loadData() {
 
 async function boot() {
   buildBackground();
-  window.addEventListener('resize', buildBackground);
+  window.addEventListener('resize', debounce(buildBackground, 150));
   const data = await loadData();
   document.getElementById('loading').remove();
   render(data);

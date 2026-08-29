@@ -22,11 +22,12 @@ function randomColor() {
 }
 
 function buildPoints(W, H) {
-  const pts = [[0, 0], [W, 0], [0, H], [W, H]];
+  const pts = [];
   for (let r = 0; r <= ROWS; r++) {
     for (let c = 0; c <= COLS; c++) {
-      const jx = (Math.random() - 0.5) * (W / COLS) * 0.60;
-      const jy = (Math.random() - 0.5) * (H / ROWS) * 0.60;
+      const onEdge = r === 0 || r === ROWS || c === 0 || c === COLS;
+      const jx = onEdge ? 0 : (Math.random() - 0.5) * (W / COLS) * 0.60;
+      const jy = onEdge ? 0 : (Math.random() - 0.5) * (H / ROWS) * 0.60;
       pts.push([
         Math.max(0, Math.min(W, (c / COLS) * W + jx)),
         Math.max(0, Math.min(H, (r / ROWS) * H + jy)),
@@ -37,11 +38,10 @@ function buildPoints(W, H) {
 }
 
 function buildTriangles(pts) {
-  const OFFSET = 4;
   const tris = [];
   for (let r = 0; r < ROWS; r++) {
     for (let c = 0; c < COLS; c++) {
-      const tl = OFFSET + r * (COLS + 1) + c;
+      const tl = r * (COLS + 1) + c;
       const tr = tl + 1;
       const bl = tl + (COLS + 1);
       const br = bl + 1;

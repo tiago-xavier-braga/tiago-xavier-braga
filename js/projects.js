@@ -1,6 +1,7 @@
 import { buildBackground } from './background.js';
 import { initReveal } from './reveal.js';
 import { ICONS, platformInfo } from './icons.js';
+import { escapeHTML, debounce } from './sanitize.js';
 
 const FALLBACK_PROJECTS = [
   { title: 'Dominoes Colors', description: 'A relaxing puzzle game where you mix colors as you place each piece on the board.', tags: ['Unity', 'C#', 'Puzzle'], platform: 'steam', url: 'https://store.steampowered.com/app/2372580/Dominoes_Colors/' },
@@ -16,21 +17,21 @@ const FALLBACK_META = {
 function projectCard(project, index) {
   const { title, description, tags = [], platform, url } = project;
   const { label, iconKey } = platformInfo(platform);
-  const tagHTML = tags.map(t => `<span class="tag">${t}</span>`).join('');
+  const tagHTML = tags.map(t => `<span class="tag">${escapeHTML(t)}</span>`).join('');
   const num = String(index + 1).padStart(2, '0');
   return `
     <a class="project-card glass reveal reveal-d${(index % 3) + 1}"
-       href="${url || '#'}"
+       href="${escapeHTML(url || '#')}"
        target="_blank"
        rel="noopener noreferrer"
-       aria-label="Open ${title} on ${label}">
+       aria-label="Open ${escapeHTML(title)} on ${escapeHTML(label)}">
       <div class="card-arrow">${ICONS.arrowUpRight}</div>
       <div class="card-num">PROJECT_${num}</div>
-      <div class="card-title">${title}</div>
-      <p class="card-desc">${description}</p>
+      <div class="card-title">${escapeHTML(title)}</div>
+      <p class="card-desc">${escapeHTML(description)}</p>
       <div class="card-footer">
         <div class="tag-list">${tagHTML}</div>
-        <span class="platform-badge">${ICONS[iconKey] || ''}${label}</span>
+        <span class="platform-badge">${ICONS[iconKey] || ''}${escapeHTML(label)}</span>
       </div>
     </a>`;
 }
@@ -45,13 +46,13 @@ function render(projects, meta) {
 
   const logoEl = document.querySelector('.nav-logo');
   if (logoEl) {
-    const parts = meta.name.split(' ');
-    logoEl.innerHTML = `${parts.slice(0, 2).join(' ')} <span>${parts[2] || ''}</span>`;
+    const parts = (meta.name || '').split(' ');
+    logoEl.innerHTML = `${escapeHTML(parts.slice(0, 2).join(' '))} <span>${escapeHTML(parts[2] || '')}</span>`;
   }
 
   const statusEl = document.querySelector('.nav-status');
   if (statusEl) {
-    statusEl.innerHTML = `<div class="status-dot"></div>${meta.status || 'AVAILABLE'}`;
+    statusEl.innerHTML = `<div class="status-dot"></div>${escapeHTML(meta.status ?? 'AVAILABLE')}`;
   }
 
   const footerName = document.querySelector('.footer-name');
@@ -76,7 +77,7 @@ async function loadData() {
 
 async function boot() {
   buildBackground();
-  window.addEventListener('resize', buildBackground);
+  window.addEventListener('resize', debounce(buildBackground, 150));
   const data = await loadData();
   render(data.projects || [], { name: data.name, status: data.status });
 }
