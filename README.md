@@ -21,4 +21,4 @@ More games and prototypes on [itch.io](https://xavigames.itch.io/).
 
 ## Elsewhere
 
-[LinkedIn](https://linkedin.com/in/tiago-xavier-braga) · [itch.io](https://xavigames.itch.io/) · [Email](mailto:braga.tiagoxavier@gmail.com)
+[Portfolio](https://tiago-xavier-braga.github.io/) · [LinkedIn](https://linkedin.com/in/tiago-xavier-braga) · [itch.io](https://xavigames.itch.io/) · [Email](mailto:braga.tiagoxavier@gmail.com)
